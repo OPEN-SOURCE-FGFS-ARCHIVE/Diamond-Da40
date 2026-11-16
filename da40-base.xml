@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <sim include="Systems/views.xml">
+
+    <description>Diamond DA 40 (YASim)</description>
+    <author>Emmanuel BARANGER (3D/FDM), StuartC (FDM) Gary Brown (paint)</author>
+    <aircraft-version>1.0 FGUK</aircraft-version>
+    <status>Alpha</status>
+
+    <fuel-fraction>1.0</fuel-fraction>
+
+    <startup>
+      <splash-texture>Aircraft/Diamond-Da40/da40-splash.png</splash-texture>
+    </startup>
+
+    <sound>
+      <path archive="y">Aircraft/Diamond-Da40/Sounds/da40-sound.xml</path>
+    </sound>
+
+    <model>
+      <path archive="y">Aircraft/Diamond-Da40/Models/da40.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+    </model>
+	
+	<rendering>
+    <refl_correction type="string">-0.25</refl_correction>
+    </rendering>
+
+    <flaps>
+      <setting>0.000</setting>
+      <setting>0.375</setting>
+      <setting>1.000</setting> <!-- 20 deg -->
+    </flaps>
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic> 
+            <!-- Nav lights on -->
+      <int n="0" alias="/controls/switches/nav-lights-switch" />
+      <!-- Beacon on -->
+      <int n="1" alias="/controls/switches/beacon-switch" />
+      <!-- Landing lights on -->
+      <int n="2" alias="/controls/switches/landing-lights-switch" />
+	    <!-- Taxi light on -->
+      <int n="3" alias="/controls/switches/strobe-switch" />
+        <int   n="4"  type="int">  0 </int>                                         <!-- 4 immat -->
+        <int   n="5"  type="int">  0 </int>                                         <!-- 5 immat -->
+        <int   n="6"  type="bool"> 1 </int>                                         <!-- 6 -->
+         <!-- Crashed -->
+      <int n="7" alias="/sim/crashed" />
+        <int   n="8"  alias="/systems/electrical/outputs/nav-lights">  0 </int>     <!-- 8 nav-lights -->
+        <int   n="9"  alias="/sim/model/lights/beacon/state">  false </int>         <!-- 9 strobe-lights -->
+        <float n="0"  alias="/sim/model/door-positions/crew/position-norm"/>
+        <float n="1"  alias="/sim/model/door-positions/passenger/position-norm"/>
+        <float n="2"  alias="/position/gear-agl-m"> 0 </float>                      <!-- altitude for MP shadow -->
+        <float n="3"  alias="/position/altitude-ft"> 0 </float>                     <!-- altitude for Smoke/Trail -->
+        <float n="4"  alias="/engines/engine[0]/rpm"/>
+        <float n="5"  alias="/engines/engine[0]/cranking"/>
+        <float n="6"  alias="/gear/gear[0]/wow/"/>
+        <float n="7"  alias="/gear/gear[1]/wow/"/>
+        <float n="8"  alias="/gear/gear[2]/wow/"/>
+        <float n="9"  alias="/gear/gear[3]/wow/"/>
+        <float n="10" alias="/gear/gear[0]/rollspeed-ms"/>
+        <float n="11" alias="/gear/gear[1]/rollspeed-ms"/>
+        <float n="12" alias="/gear/gear[2]/rollspeed-ms"/>
+        <float n="13" alias="/gear/gear[3]/rollspeed-ms"/>
+        <!-- For Bombable -->
+        <int type="int" n="10" alias="controls/armament/trigger">0</int>
+		
+		<string n="1" alias="/sim/weight[0]/selected" /><!-- Payload over multiplayer -->
+        <string n="9" type="string" />
+      </generic>
+    </multiplay>
+    
+    <help include="Systems/help.xml"/>
+
+    <menubar include="Dialogs/da40-menu.xml"/>
+	
+<weight n="0">
+<name>Options</name>
+<weight-lb>0</weight-lb>
+<selected>Basic</selected>
+<opt>
+<name>Basic</name>
+<lbs>0</lbs>
+</opt>
+<opt>
+<name>Spats</name>
+<lbs>4</lbs>
+</opt>
+</weight>	
+
+  </sim>
+  	<environment>
+    <turbulence>
+      <use-cloud-turbulence>true</use-cloud-turbulence>
+    </turbulence>
+  </environment>
+ 
+  <input include="Systems/da40-keyboard.xml"/>
+  
+ <!-- <controls include="Systems/controls.xml"/>-->
+
+  <nasal>
+  	<FG1000>
+	<file>Aircraft/Diamond-Da40/Nasal/FGUK1000.nas</file>
+    </FG1000>
+	
+		<lights>
+      <file>Aircraft/Diamond-Da40/Nasal/Lights.nas</file>
+    </lights>
+	
+  
+    <doors>
+      <file>Aircraft/Diamond-Da40/Nasal/doors.nas</file>
+    </doors>
+    <da40>
+      <!--<file>Aircraft/Diamond-Da40/Nasal/light.nas</file>-->
+      <file>Aircraft/Diamond-Da40/Nasal/liveries.nas</file>
+      <file>Aircraft/Diamond-Da40/Nasal/immat.nas</file>
+      <file>Aircraft/Diamond-Da40/Nasal/fluids.nas</file>
+      <file>Aircraft/Diamond-Da40/Nasal/Electrical.nas</file>
+      <file>Aircraft/Diamond-Da40/Nasal/system.nas</file>
+    </da40>
+    <systems>
+      <file>Aircraft/Diamond-Da40/Models/Interior/Panel/Instruments/gps/kln90b.nas</file>
+    </systems>
+    <kap140>
+      <file>Aircraft/Diamond-Da40/Models/Interior/Panel/Instruments/kap140/autopilot/kap140.nas</file>
+      <!-- We can set some variables that might be
+           aircraft specific. We must do it after the file
+           to override the ones that are in the .nas file.
+           gsNeedleDeflection = "/instrumentation/nav/gs-needle-deflection";
+      -->
+      <script>
+        <![CDATA[ 
+          staticPressure = "systems/static/pressure-inhg";
+        ]]>
+      </script>
+    </kap140>  
+	
+		 <dual_control_tools>
+   <file>Aircraft/Generic/DualControl/dual-control-tools.nas</file>
+  </dual_control_tools>
+  <aircraft_dual_control>
+   <file>Aircraft/Diamond-Da40/Nasal/DA40-dual-control.nas</file>
+  </aircraft_dual_control>
+  <dual_control>
+   <file>Aircraft/Generic/DualControl/copilot-dual-control.nas</file>
+  </dual_control>
+	
+  </nasal>
+   
+</PropertyList>

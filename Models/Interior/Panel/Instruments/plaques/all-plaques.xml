@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <model>
+    <path>Aircraft/Diamond-Da40/Models/Interior/Panel/Instruments/plaques/plaque1.xml</path>
+    <offsets>
+      <x-m>  0.000000 </x-m>
+      <y-m> -0.4 </y-m>
+      <z-m> -0.145 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Diamond-Da40/Models/Interior/Panel/Instruments/plaques/plaque2.xml</path>
+    <offsets>
+      <x-m>  0.00000 </x-m>
+      <y-m> -0.31780 </y-m>
+      <z-m> -0.145 </z-m>
+    </offsets>
+  </model>
+ 
+  <model>
+    <path>Aircraft/Diamond-Da40/Models/Interior/Panel/Instruments/plaques/plaque3.xml</path>
+    <offsets>
+      <x-m>  0.00000 </x-m>
+      <y-m> -0.21712 </y-m>
+     <z-m> -0.145 </z-m>
+    </offsets>
+  </model>
+ 
+  <model>
+    <path>Aircraft/Diamond-Da40/Models/Interior/Panel/Instruments/plaques/plaque4.xml</path>
+    <offsets>
+      <x-m>  0.00000 </x-m>
+      <y-m> -0.11819 </y-m>
+       <z-m> -0.145 </z-m>
+    </offsets>
+  </model>
+ 
+</PropertyList>

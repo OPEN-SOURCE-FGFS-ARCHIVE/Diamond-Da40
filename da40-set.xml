@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList include="da40-base.xml">
+
+  <sim>
+    
+    <description>Diamond DA 40 (YASim)</description>
+    <author>Emmanuel BARANGER (3D/FDM), StuartC (FDM) Gary Brown (paint)</author>
+    <aircraft-version>1.0 FGUK</aircraft-version>
+    <status>Production</status>
+    
+    <flight-model archive="y">yasim</flight-model>
+    <aero archive="y">da40-yasim</aero>
+    
+    <rating>
+      <FDM type="int">     3 </FDM>
+      <systems type="int"> 2 </systems>
+      <cockpit type="int"> 3 </cockpit>
+      <model type="int">   4 </model>
+    </rating>
+	
+	 <tags>
+      <tag>Diamond DA40</tag>
+      <tag>Diamond</tag>
+      <tag>Single Engine</tag>
+      <tag>Bell Helicopter</tag>
+	  <tag>Low Wing</tag>
+      <tag>4 Seater</tag>
+      <tag>General Aviation</tag>
+	  <tag>FGUK</tag>
+	  <tag>GA Aircraft</tag>
+      <tag>1990s</tag>
+      <tag>2000s</tag>
+    </tags>
+
+
+	<previews>
+	  <preview>
+		<type>interior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash1.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash2.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash3.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash4.png</path>
+	  </preview>
+	  <preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Splash/splash5.png</path>
+	  </preview>
+	</previews>
+
+    <tags>
+      <tag>diamond</tag>
+      <tag>low-wing</tag>
+      <tag>tricycle</tag>
+      <tag>retractable-gear</tag>
+      <tag>single-engine</tag>
+      <tag>variable-pitch</tag>
+      <tag>piston</tag>
+      <tag>glass-cockpit</tag>
+      <tag>ifr</tag>
+      <tag>ga</tag>
+      <tag>2000s</tag>
+      <tag>2010s</tag>
+    </tags>
+	
+	  <systems>
+      
+	  <autopilot n="101">
+        <path>Aircraft/Diamond-Da40/Systems/glass-rain.xml</path>
+        </autopilot>
+    </systems> 
+
+    
+  </sim>
+  
+  <controls>
+
+
+	<switches>
+	<landing-lights-switch type="bool">false</landing-lights-switch>
+	<search-lights-switch type="bool">false</search-lights-switch>
+	<nav-lights-switch type="bool">false</nav-lights-switch>
+	<beacon-switch type="bool">false</beacon-switch>
+	<strobe-switch type="bool">false</strobe-switch>
+	<white-light-switch type="bool">false</white-light-switch>
+
+	</switches>
+
+<gear>
+    <brake-parking type="bool">1</brake-parking>
+  </gear>
+  
+  <lighting>
+    <instrument-lights type="bool">false</instrument-lights>
+   
+    <luminosite-lights type="float">2</luminosite-lights>
+    <floods-lights type="float">1.5</floods-lights>
+	
+	
+	
+  </lighting>
+  
+
+  
+  <electric>
+    <battery-switch>0</battery-switch>
+    <generator>0</generator>
+    <engines>
+      <engine n="0">
+        <fuel-pump>0</fuel-pump>
+      </engine>
+    </engines>
+  </electric>
+  
+  <fuel>
+    <tank n="0">
+      <lock type="bool">false</lock>
+      <position type="double">0</position>
+    </tank>
+  </fuel>
+  
+  <engines>
+    <engine>
+      <on type="bool">false</on>
+    </engine>
+  </engines>
+
+	</controls>
+
+</PropertyList>

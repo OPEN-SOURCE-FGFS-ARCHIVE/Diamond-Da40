@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Base: The sounds of the FK9 Mark 2 by Maik JUSTUS -->
+ 
+<PropertyList>
+
+  <fx>
+ 
+    
+
+
+
+    <crank>
+      <name>cough</name>
+      <path>Sounds/coughing.wav</path>
+      <property>/engines/engine/running</property>
+      <volume>
+        <offset>0.3</offset>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </crank>
+
+    <stopext>
+      <name>stopext</name>
+      <path>Aircraft/Diamond-Da40/Sounds/eng_stop_ext1.wav</path>
+      <condition>
+        <not>
+          <property>/engines/engine/running</property>
+        </not>
+      </condition>
+      <volume>
+        <property>/sim/current-view/internal</property>
+        <factor>-1.0</factor>
+        <offset>1.0</offset>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </stopext>
+
+
+
+    <engine>
+      <name>engine</name>
+      <mode>looped</mode>
+      <path>Aircraft/Diamond-Da40/Sounds/eng_run_ext1_loop.wav</path>
+      <condition>
+        <and>
+          <property>/engines/engine/running</property>
+          <not>
+            <property>/sim/current-view/internal</property>
+          </not>
+        </and>
+      </condition>
+      <volume>
+        <property>engines/engine/mp-osi</property>
+        <factor>0.00375</factor>
+        <min>0.5</min>
+        <max>2.0</max>
+      </volume>
+      <pitch>
+        <property>/engines/engine/rpm</property>
+        <factor>0.00028</factor>
+        <min>0.15</min>
+        <max>2.0</max>
+        <offset>-0.0</offset>
+      </pitch>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </engine>
+
+    <engine>
+      <name>engineextslow</name>
+      <mode>looped</mode>
+      <path>Aircraft/Diamond-Da40/Sounds/eng_run_ext3_slow.wav</path>
+      <condition>
+        <and>
+          <property>/engines/engine/running</property>
+          <not>
+            <property>/sim/current-view/internal</property>
+          </not>
+        </and>
+      </condition>
+      <volume>
+        <property>engines/engine/mp-osi</property>
+        <factor>0.00375</factor>
+        <min>0.5</min>
+        <max>2.0</max>
+      </volume>
+      <pitch>
+        <property>/engines/engine/rpm</property>
+        <factor>0.0005</factor>
+        <min>0.35</min>
+        <max>2.0</max>
+        <offset>-0.0</offset>
+      </pitch>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </engine>
+
+
+
+    <squeal>
+      <name>squeal</name>
+      <path>Aircraft/Diamond-Da40/Sounds/wow.wav</path>
+      <condition>
+        <or>
+          <property>/gear/gear[0]/wow</property>
+          <property>/gear/gear[1]/wow</property>
+          <property>/gear/gear[2]/wow</property>
+        </or>
+      </condition>
+      <volume>
+        <property>/velocities/speed-down-fps</property>
+        <factor>0.5</factor>
+        <max>1.0</max>
+      </volume>
+      <volume>
+        <property>/velocities/airspeed-kt</property>
+        <factor>0.1</factor>
+        <max>1.0</max>
+      </volume>
+      <volume>
+        <internal>dt_stop</internal>
+        <factor>0.05</factor>
+        <max>1.0</max>
+      </volume>
+      <pitch>
+        <property>/velocities/airspeed-kt</property>
+        <factor>0.0025</factor>
+        <offset>1.0</offset>
+      </pitch>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </squeal>
+ 
+ 
+
+  </fx>
+
+</PropertyList>
